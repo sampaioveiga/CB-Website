@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALMA — Clínica Dentária</title>
+<meta name="description" content="ALMA Clínica Dentária — odontologia de precisão num ambiente pensado para o seu conforto. Implantologia, ortodontia invisível, estética dentária e muito mais.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#inicio" class="logo">
+      <span class="logo-mark"><i class="fa-solid fa-tooth"></i></span>
+      <span class="logo-text">ALMA</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#antes-depois">Antes &amp; Depois</a>
+      <a href="#testemunhos">Testemunhos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:+351210000000" class="header-phone"><i class="fa-solid fa-phone"></i> 21 000 00 00</a>
+      <a href="#contacto" class="btn btn-primary btn-sm">Marcar Consulta</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="hero-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <svg class="hero-wave" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 C240,200 480,20 720,80 C960,140 1200,40 1440,100 L1440,220 L0,220 Z" />
+    </svg>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow reveal" data-reveal>Clínica Dentária de Excelência ✦ Lisboa</span>
+      <h1 class="hero-title">
+        <span class="reveal" data-reveal>Cuidar do seu</span>
+        <span class="reveal" data-reveal>
+          <span class="ink">sorriso
+            <svg class="ink-underline" viewBox="0 0 220 30" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M4 20 C 50 4, 90 28, 130 14 C 160 4, 190 22, 216 10" />
+            </svg>
+          </span>, com alma.
+        </span>
+      </h1>
+      <p class="hero-desc reveal" data-reveal>
+        Odontologia de precisão, tecnologia digital de ponta e uma equipa que trata
+        cada sorriso como único. Bem-vindo a uma experiência dentária diferente.
+      </p>
+      <div class="hero-actions reveal" data-reveal>
+        <a href="#contacto" class="btn btn-primary btn-lg">
+          Marcar Consulta <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#sobre" class="btn btn-ghost btn-lg">Conhecer a Clínica</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" data-reveal>
+      <div class="hero-visual-frame">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=80" alt="Sorriso saudável e radiante" loading="eager">
+      </div>
+      <div class="floating-card floating-card--tech">
+        <i class="fa-solid fa-cube"></i>
+        <div>
+          <strong>Scan 3D Digital</strong>
+          <span>Sem moldes, sem desconforto</span>
+        </div>
+      </div>
+
+      <div class="orbit-badge" aria-hidden="true">
+        <svg class="orbit-badge__ring" viewBox="0 0 200 200">
+          <defs>
+            <path id="orbitPath" d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+          </defs>
+          <text>
+            <textPath href="#orbitPath" startOffset="0">ALMA CLÍNICA DENTÁRIA • DESDE 2007 • MARQUE JÁ •</textPath>
+          </text>
+        </svg>
+        <span class="orbit-badge__icon"><i class="fa-solid fa-tooth"></i></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats-bar">
+    <div class="container hero-stats-grid">
+      <div class="stat-glass">
+        <span class="stat-number" data-count="18">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Anos de experiência</span>
+      </div>
+      <div class="stat-glass">
+        <span class="stat-number" data-count="12000">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Sorrisos transformados</span>
+      </div>
+      <div class="stat-glass">
+        <span class="stat-number" data-count="4.9" data-decimal="1">0</span>
+        <span class="stat-label">★ Avaliação média (Google)</span>
+      </div>
+      <div class="stat-glass">
+        <span class="stat-number" data-count="98">0</span><span class="stat-suffix">%</span>
+        <span class="stat-label">Pacientes satisfeitos</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="#sobre" class="scroll-cue" aria-label="Descer para a secção Sobre">
+    <span></span>
+  </a>
+</section>
+
+<!-- ===== TRUST MARQUEE ===== -->
+<section class="trust-strip">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span><i class="fa-solid fa-shield-heart"></i> Ordem dos Médicos Dentistas</span>
+      <span><i class="fa-solid fa-certificate"></i> Invisalign Diamond Provider</span>
+      <span><i class="fa-solid fa-award"></i> Certificação ISO 9001</span>
+      <span><i class="fa-solid fa-handshake"></i> Parceiro Straumann Implants</span>
+      <span><i class="fa-solid fa-star"></i> +500 Avaliações 5★ no Google</span>
+      <span><i class="fa-solid fa-shield-heart"></i> Ordem dos Médicos Dentistas</span>
+      <span><i class="fa-solid fa-certificate"></i> Invisalign Diamond Provider</span>
+      <span><i class="fa-solid fa-award"></i> Certificação ISO 9001</span>
+      <span><i class="fa-solid fa-handshake"></i> Parceiro Straumann Implants</span>
+      <span><i class="fa-solid fa-star"></i> +500 Avaliações 5★ no Google</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section class="about" id="sobre">
+  <div class="container about-inner">
+    <div class="about-visual reveal" data-reveal>
+      <img class="about-img about-img--main" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Equipa clínica ALMA a trabalhar">
+      <img class="about-img about-img--float" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=80" alt="Consultório moderno e acolhedor">
+      <div class="about-badge">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <span>Cuidado centrado<br>em si, desde 2007</span>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="section-eyebrow reveal" data-reveal>Sobre a ALMA</span>
+      <h2 class="section-title reveal" data-reveal>Mais do que uma clínica, um espaço de confiança</h2>
+      <p class="reveal" data-reveal>
+        Há mais de 18 anos que combinamos tecnologia de ponta com um atendimento
+        humano e próximo. Cada tratamento é desenhado à medida do paciente,
+        num ambiente pensado ao detalhe para reduzir a ansiedade e devolver
+        o conforto à ida ao dentista.
+      </p>
+      <ul class="about-points reveal" data-reveal>
+        <li><i class="fa-solid fa-circle-check"></i> Diagnóstico digital 3D de alta precisão</li>
+        <li><i class="fa-solid fa-circle-check"></i> Equipa multidisciplinar especializada</li>
+        <li><i class="fa-solid fa-circle-check"></i> Ambiente pensado para o seu conforto</li>
+        <li><i class="fa-solid fa-circle-check"></i> Planos de tratamento transparentes</li>
+      </ul>
+      <a href="#servicos" class="link-arrow reveal" data-reveal>
+        Explorar os nossos serviços <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVIÇOS ===== -->
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow reveal" data-reveal>Os Nossos Serviços</span>
+      <h2 class="section-title reveal" data-reveal>Cuidados dentários para todas as fases da vida</h2>
+      <p class="section-sub reveal" data-reveal>
+        Da prevenção à reabilitação oral completa — tudo o que precisa, num só lugar.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card service-card--featured reveal" data-reveal>
+        <img class="service-card__bg" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80" alt="">
+        <span class="service-tag">Mais Popular</span>
+        <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>Implantologia Avançada</h3>
+        <p>Reabilitação oral com implantes de última geração, planeados digitalmente ao milímetro.</p>
+        <a href="#contacto" class="link-arrow">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="service-card reveal" data-reveal>
+        <div class="service-icon"><i class="fa-solid fa-align-center"></i></div>
+        <h3>Ortodontia Invisível</h3>
+        <p>Alinhadores transparentes personalizados para corrigir o sorriso de forma discreta e confortável.</p>
+        <a href="#contacto" class="link-arrow">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="service-card reveal" data-reveal>
+        <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+        <h3>Medicina Dentária Geral</h3>
+        <p>Consultas de rotina, prevenção e tratamento conservador para manter a sua saúde oral em dia.</p>
+        <a href="#contacto" class="link-arrow">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="service-card reveal" data-reveal>
+        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Estética Dentária</h3>
+        <p>Facetas, branqueamento e desenho de sorriso digital para o resultado que sempre quis.</p>
+        <a href="#contacto" class="link-arrow">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="service-card reveal" data-reveal>
+        <div class="service-icon"><i class="fa-solid fa-child-reaching"></i></div>
+        <h3>Odontopediatria</h3>
+        <p>Um ambiente lúdico e acolhedor para que as crianças cresçam sem medo do dentista.</p>
+        <a href="#contacto" class="link-arrow">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="service-card reveal" data-reveal>
+        <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+        <h3>Cirurgia Oral &amp; Periodontologia</h3>
+        <p>Intervenções cirúrgicas e tratamento das gengivas com sedação consciente disponível.</p>
+        <a href="#contacto" class="link-arrow">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFERENCIAIS ===== -->
+<section class="differentiators" id="diferenciais">
+  <div class="container">
+    <div class="section-head section-head--light">
+      <span class="section-eyebrow reveal" data-reveal>Porquê a ALMA</span>
+      <h2 class="section-title reveal" data-reveal>Tecnologia e cuidado, sem compromissos</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal" data-reveal>
+        <i class="fa-solid fa-cube"></i>
+        <h3>Scan &amp; CBCT 3D</h3>
+        <p>Diagnóstico digital de alta precisão sem moldes desconfortáveis.</p>
+      </div>
+      <div class="diff-card reveal" data-reveal>
+        <i class="fa-solid fa-spa"></i>
+        <h3>Sedação Consciente</h3>
+        <p>Trate a ansiedade e realize tratamentos complexos com total tranquilidade.</p>
+      </div>
+      <div class="diff-card reveal" data-reveal>
+        <i class="fa-solid fa-biohazard"></i>
+        <h3>Esterilização Hospitalar</h3>
+        <p>Protocolos rigorosos de biossegurança em todas as etapas do tratamento.</p>
+      </div>
+      <div class="diff-card reveal" data-reveal>
+        <i class="fa-solid fa-user-doctor"></i>
+        <h3>Acompanhamento Personalizado</h3>
+        <p>Um plano de tratamento desenhado à sua medida, com total transparência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTES & DEPOIS ===== -->
+<section class="before-after" id="antes-depois">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow reveal" data-reveal>Resultados Reais</span>
+      <h2 class="section-title reveal" data-reveal>Antes &amp; Depois</h2>
+      <p class="section-sub reveal" data-reveal>Arraste o cursor para comparar o antes e o depois de um caso real de reabilitação estética.</p>
+    </div>
+
+    <div class="ba-slider reveal" data-reveal id="baSlider">
+      <div class="ba-img ba-img--before">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80&sat=-100" alt="Antes do tratamento">
+        <span class="ba-tag ba-tag--before">Antes</span>
+      </div>
+      <div class="ba-img ba-img--after" id="baAfter">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80" alt="Depois do tratamento">
+        <span class="ba-tag ba-tag--after">Depois</span>
+      </div>
+      <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Comparar antes e depois">
+      <div class="ba-handle" id="baHandle"><i class="fa-solid fa-arrows-left-right"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTEMUNHOS ===== -->
+<section class="testimonials" id="testemunhos">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow reveal" data-reveal>Testemunhos</span>
+      <h2 class="section-title reveal" data-reveal>O que dizem os nossos pacientes</h2>
+    </div>
+
+    <div class="testimonial-carousel reveal" data-reveal>
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Sempre tive muito medo do dentista, mas na ALMA senti-me acompanhada em cada passo. O resultado do meu sorriso superou tudo o que esperava."</p>
+          <div class="testimonial-author">
+            <span class="avatar">MC</span>
+            <div><strong>Marta Costa</strong><span>Estética Dentária</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Fiz o meu implante com toda a tranquilidade graças à sedação consciente. Equipa profissional, atenta e muito humana."</p>
+          <div class="testimonial-author">
+            <span class="avatar">JP</span>
+            <div><strong>João Pereira</strong><span>Implantologia</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Os meus filhos adoram ir à ALMA! O ambiente para crianças faz toda a diferença. Recomendo de olhos fechados."</p>
+          <div class="testimonial-author">
+            <span class="avatar">SR</span>
+            <div><strong>Sofia Rodrigues</strong><span>Odontopediatria</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Os alinhadores invisíveis mudaram a minha vida — discretos, confortáveis e com resultados visíveis em poucos meses."</p>
+          <div class="testimonial-author">
+            <span class="avatar">RT</span>
+            <div><strong>Rui Teixeira</strong><span>Ortodontia Invisível</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div class="container cta-band-inner reveal" data-reveal>
+    <h2>Pronto para transformar o seu sorriso?</h2>
+    <p>Marque a sua primeira consulta e receba uma avaliação digital completa.</p>
+    <div class="cta-band-actions">
+      <a href="#contacto" class="btn btn-white btn-lg">Marcar Consulta</a>
+      <a href="tel:+351210000000" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-phone"></i> 21 000 00 00</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section class="contact" id="contacto">
+  <div class="container contact-inner">
+    <div class="contact-form-wrap reveal" data-reveal>
+      <span class="section-eyebrow">Contacto</span>
+      <h2 class="section-title">Vamos agendar a sua consulta</h2>
+      <p class="section-sub">Preencha o formulário e entraremos em contacto dentro de 24 horas úteis.</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nome completo</label>
+            <input type="text" id="name" name="name" placeholder="O seu nome" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" placeholder="912 345 678" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="oseuemail@exemplo.com" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Serviço de interesse</label>
+          <select id="service" name="service">
+            <option>Medicina Dentária Geral</option>
+            <option>Ortodontia Invisível</option>
+            <option>Implantologia Avançada</option>
+            <option>Estética Dentária</option>
+            <option>Odontopediatria</option>
+            <option>Cirurgia Oral &amp; Periodontologia</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="4" placeholder="Conte-nos um pouco sobre o que procura..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Enviar Pedido <i class="fa-solid fa-paper-plane"></i></button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+
+    <div class="contact-info reveal" data-reveal>
+      <div class="contact-info-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <div><strong>Morada</strong><span>Av. da Liberdade 123, 1250-096 Lisboa</span></div>
+      </div>
+      <div class="contact-info-card">
+        <i class="fa-solid fa-phone"></i>
+        <div><strong>Telefone</strong><span>21 000 00 00</span></div>
+      </div>
+      <div class="contact-info-card">
+        <i class="fa-solid fa-envelope"></i>
+        <div><strong>Email</strong><span>geral@almadentaria.pt</span></div>
+      </div>
+      <div class="contact-info-card contact-hours">
+        <i class="fa-solid fa-clock"></i>
+        <div>
+          <strong>Horário</strong>
+          <span>Seg — Sex: 09h00 – 20h00</span>
+          <span>Sábado: 09h00 – 13h00</span>
+        </div>
+      </div>
+      <div class="contact-map" aria-hidden="true">
+        <div class="map-pin"><i class="fa-solid fa-location-dot"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#inicio" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-tooth"></i></span>
+        <span class="logo-text">ALMA</span>
+      </a>
+      <p>Cuidar do seu sorriso, com alma.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#antes-depois">Antes &amp; Depois</a>
+      <a href="#testemunhos">Testemunhos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <a href="#servicos">Medicina Dentária Geral</a>
+      <a href="#servicos">Ortodontia Invisível</a>
+      <a href="#servicos">Implantologia Avançada</a>
+      <a href="#servicos">Estética Dentária</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contactos</h4>
+      <span><i class="fa-solid fa-location-dot"></i> Av. da Liberdade 123, Lisboa</span>
+      <span><i class="fa-solid fa-phone"></i> 21 000 00 00</span>
+      <span><i class="fa-solid fa-envelope"></i> geral@almadentaria.pt</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 ALMA Clínica Dentária. Todos os direitos reservados.</span>
+      <span>Protótipo de website — imagens e conteúdos ilustrativos.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
