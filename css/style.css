@@ -366,6 +366,51 @@ section { padding: 120px 0; }
 .link-arrow:hover { gap: 16px; }
 
 /* =========================================================
+   DENTIST
+========================================================= */
+.dentist-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
+
+.dentist-quote {
+  position: relative; font-family: var(--font-display); font-style: italic; font-size: 1.5rem;
+  color: var(--primary); line-height: 1.4; margin: 24px 0 26px; padding-left: 28px;
+  border-left: 3px solid var(--gold);
+}
+.dentist-quote::before {
+  content: "“"; position: absolute; top: -30px; left: 20px; font-family: var(--font-display);
+  font-size: 5rem; color: var(--gold); opacity: 0.25; font-style: normal; line-height: 1;
+}
+
+.dentist-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 26px; }
+
+.dentist-credentials { display: grid; gap: 12px; margin-bottom: 32px; }
+.dentist-credentials li { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 0.92rem; color: var(--primary); }
+.dentist-credentials i { color: var(--gold); width: 18px; text-align: center; }
+
+.dentist-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.dentist-team-note { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+.dentist-team-note i { color: var(--mint); }
+
+.dentist-visual { position: relative; }
+.dentist-photo-frame {
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 5; position: relative;
+}
+.dentist-photo-frame::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(18,59,71,0.25), rgba(201,162,39,0.12));
+  mix-blend-mode: multiply;
+}
+.dentist-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.orbit-badge--dentist { top: -46px; left: -46px; right: auto; }
+
+@media (max-width: 1080px) {
+  .dentist-inner { grid-template-columns: 1fr; }
+  .dentist-content { order: 2; }
+  .dentist-visual { order: 1; max-width: 420px; margin: 0 auto 56px; }
+}
+
+/* =========================================================
    SERVICES
 ========================================================= */
 .services-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
