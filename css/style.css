@@ -176,7 +176,7 @@ body::after {
   font-size: 1.1rem; box-shadow: var(--shadow-sm);
 }
 
-.main-nav { display: flex; gap: 34px; }
+.main-nav { display: flex; gap: 22px; }
 .main-nav a {
   font-weight: 600; font-size: 0.95rem; color: var(--text); position: relative; padding: 6px 0;
 }
@@ -186,7 +186,7 @@ body::after {
 }
 .main-nav a:hover::after { width: 100%; }
 
-.header-actions { display: flex; align-items: center; gap: 22px; }
+.header-actions { display: flex; align-items: center; gap: 14px; }
 .header-phone { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--primary); font-size: 0.92rem; }
 
 .nav-toggle {
@@ -295,8 +295,8 @@ body::after {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .stat-glass:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.stat-number { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--primary); }
-.stat-suffix { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+.stat-number { font-family: var(--font-body); font-size: 2.2rem; font-weight: 700; color: var(--primary); }
+.stat-suffix { font-family: var(--font-body); font-size: 1.6rem; font-weight: 700; color: var(--accent); margin-left: 3px; }
 .stat-label { display: block; margin-top: 6px; font-size: 0.85rem; color: var(--text-muted); }
 
 .scroll-cue {
@@ -314,7 +314,11 @@ body::after {
 /* =========================================================
    TRUST MARQUEE
 ========================================================= */
-.trust-strip { background: var(--bg-alt); padding: 26px 0; overflow: hidden; }
+.trust-strip {
+  background: var(--bg-alt); padding: 26px 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
 .marquee { width: 100%; }
 .marquee-track {
   display: flex; gap: 56px; width: max-content;
@@ -570,6 +574,14 @@ section { padding: 120px 0; }
   outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255,107,74,0.12);
 }
 .form-note { font-size: 0.9rem; color: var(--mint); font-weight: 600; min-height: 20px; }
+.form-note:not(:empty) {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--primary-dark);
+  background: rgba(47, 191, 143, 0.12);
+  border: 1px solid var(--mint); border-radius: var(--radius-sm);
+  padding: 12px 16px; margin-top: 14px;
+}
+.form-note i { color: var(--mint); font-size: 1.1rem; }
 
 .contact-info { display: flex; flex-direction: column; gap: 18px; }
 .contact-info-card {
@@ -633,6 +645,15 @@ section { padding: 120px 0; }
 .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-top:hover { background: var(--accent); }
 
+.whatsapp-float {
+  position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%;
+  background: #25D366; color: var(--white);
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  box-shadow: var(--shadow-md); z-index: 400;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsapp-float:hover { transform: translateY(-3px) scale(1.05); }
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
@@ -646,8 +667,8 @@ section { padding: 120px 0; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 860px) {
-  .main-nav { position: fixed; top: var(--header-h); left: 0; right: 0; background: var(--bg);
+@media (max-width: 1900px) {
+  .main-nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg);
     flex-direction: column; padding: 26px 32px; gap: 20px; box-shadow: var(--shadow-md);
     transform: translateY(-140%); transition: transform 0.4s ease; z-index: 400; }
   .main-nav.open { transform: translateY(0); }
@@ -666,4 +687,8 @@ section { padding: 120px 0; }
   .testimonial-card { padding: 34px 24px; }
   .cta-band-actions { flex-direction: column; align-items: stretch; }
   .hero-stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-number { font-size: 1.7rem; }
+  .stat-suffix { font-size: 1.2rem; }
+  .marquee-track { gap: 32px; }
+  .marquee-track span { font-size: 0.8rem; }
 }

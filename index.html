@@ -5,12 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ALMA — Clínica Dentária</title>
 <meta name="description" content="ALMA Clínica Dentária — odontologia de precisão num ambiente pensado para o seu conforto. Implantologia, ortodontia invisível, estética dentária e muito mais.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ALMA — Clínica Dentária">
+<meta property="og:description" content="ALMA Clínica Dentária — odontologia de precisão num ambiente pensado para o seu conforto. Implantologia, ortodontia invisível, estética dentária e muito mais.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALMA — Clínica Dentária">
+<meta name="twitter:description" content="ALMA Clínica Dentária — odontologia de precisão num ambiente pensado para o seu conforto.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "ALMA — Clínica Dentária",
+  "telephone": "+351210000000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. da Liberdade 123",
+    "postalCode": "1250-096",
+    "addressLocality": "Lisboa",
+    "addressCountry": "PT"
+  },
+  "openingHours": "Mo-Fr 09:00-20:00, Sa 09:00-13:00"
+}
+</script>
+<!-- TODO: adicionar geo/morada real antes de produção -->
 </head>
 <body>
 
@@ -452,7 +477,7 @@
           <textarea id="message" name="message" rows="4" placeholder="Conte-nos um pouco sobre o que procura..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Enviar Pedido <i class="fa-solid fa-paper-plane"></i></button>
-        <p class="form-note" id="formNote"></p>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
       </form>
     </div>
 
@@ -533,6 +558,10 @@
     </div>
   </div>
 </footer>
+
+<a class="whatsapp-float" href="https://wa.me/351910000000" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
 <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
   <i class="fa-solid fa-arrow-up"></i>

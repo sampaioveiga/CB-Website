@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formNote = document.getElementById('formNote');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    formNote.textContent = 'Obrigado! (Protótipo) — o pedido seria enviado à clínica aqui.';
+    formNote.innerHTML = '<i class="fa-solid fa-circle-check"></i> Obrigado! (Protótipo) — o pedido seria enviado à clínica aqui.';
     form.reset();
   });
 
