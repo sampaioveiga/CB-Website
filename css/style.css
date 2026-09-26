@@ -41,6 +41,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-x: clip; /* nao cria contexto de scroll; preserva position:sticky */
 }
 
 img { max-width: 100%; display: block; }
@@ -300,10 +301,12 @@ body::after {
 .stat-label { display: block; margin-top: 6px; font-size: 0.85rem; color: var(--text-muted); }
 
 .scroll-cue {
-  position: absolute; bottom: -190px; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 46px; left: 50%; transform: translateX(-50%);
   width: 30px; height: 46px; border: 2px solid var(--primary); border-radius: 20px;
-  display: none; z-index: 2;
+  display: none; z-index: 2; opacity: 0.7; transition: opacity 0.3s ease;
 }
+.scroll-cue:hover { opacity: 1; }
+@media (min-width: 901px) { .scroll-cue { display: block; } }
 .scroll-cue span {
   position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
   width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
@@ -420,7 +423,7 @@ section { padding: 120px 0; }
 .services-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
 @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1080px) {
-  .services-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 190px; }
+  .services-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(190px, auto); }
   .services-grid .service-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
   .services-grid .service-card:nth-child(2) { grid-column: span 2; grid-row: span 1; }
   .services-grid .service-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
@@ -438,7 +441,7 @@ section { padding: 120px 0; }
 .service-card:hover { box-shadow: var(--shadow-md); border-color: rgba(255,107,74,0.35); }
 .service-card .link-arrow { margin-top: auto; }
 .service-icon {
-  width: 58px; height: 58px; border-radius: 16px; margin-bottom: 22px;
+  width: 58px; height: 58px; flex: none; border-radius: 16px; margin-bottom: 22px;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.4rem;
 }
@@ -456,8 +459,11 @@ section { padding: 120px 0; }
 .service-card--featured .service-icon,
 .service-card--featured h3,
 .service-card--featured p,
-.service-card--featured .link-arrow,
-.service-card--featured .service-tag { position: relative; z-index: 2; }
+.service-card--featured .link-arrow { position: relative; z-index: 2; }
+/* O .service-tag ja e position:absolute — nao o pode passar a relative,
+   senao torna-se item flex e estica a toda a largura do cartao. */
+/* Canto oposto ao icone, para os dois nao se sobreporem. */
+.service-card--featured .service-tag { left: auto; right: 24px; }
 .service-card--featured h3 { font-size: 1.6rem; color: var(--white); }
 .service-card--featured p { color: rgba(255,255,255,0.85); }
 .service-card--featured .link-arrow { color: var(--gold); }
@@ -486,7 +492,8 @@ section { padding: 120px 0; }
   border-radius: var(--radius-md); padding: 32px 24px; text-align: center;
   backdrop-filter: blur(6px); transition: transform 0.3s ease, background 0.3s ease;
 }
-.diff-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.12); }
+.diff-card:hover { background: rgba(255,255,255,0.12); }
+.diff-card:not(.tilt):hover { transform: translateY(-8px); }
 .diff-card i { font-size: 1.8rem; color: var(--accent); margin-bottom: 16px; }
 .diff-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 10px; }
 .diff-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
@@ -501,7 +508,7 @@ section { padding: 120px 0; }
 }
 .ba-img { position: absolute; inset: 0; }
 .ba-img img { width: 100%; height: 100%; object-fit: cover; }
-.ba-img--after { clip-path: inset(0 50% 0 0); }
+.ba-img--before { clip-path: inset(0 50% 0 0); }
 .ba-tag {
   position: absolute; top: 18px; padding: 6px 16px; border-radius: 999px;
   font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
@@ -525,13 +532,14 @@ section { padding: 120px 0; }
 /* =========================================================
    TESTIMONIALS
 ========================================================= */
-.testimonial-carousel { max-width: 760px; margin: 0 auto; position: relative; overflow: hidden; }
+.testimonial-carousel { max-width: 760px; margin: 0 auto; position: relative; }
+.testimonial-viewport { overflow: hidden; border-radius: var(--radius-lg); }
 .testimonial-track { display: flex; transition: transform 0.6s cubic-bezier(.22,1,.36,1); }
 .testimonial-card {
   min-width: 100%; background: var(--white); border-radius: var(--radius-lg);
   padding: 48px 46px; box-shadow: var(--shadow-md); text-align: center;
 }
-.stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 20px; letter-spacing: 4px; }
+.stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 6px; }
 .testimonial-card p { font-family: var(--font-display); font-size: 1.3rem; color: var(--primary); font-style: italic; margin-bottom: 28px; line-height: 1.5; }
 .testimonial-author { display: flex; align-items: center; justify-content: center; gap: 14px; }
 .avatar {
@@ -595,20 +603,11 @@ section { padding: 120px 0; }
 .contact-hours span { line-height: 1.6; }
 
 .contact-map {
-  border-radius: var(--radius-md); height: 180px; position: relative; overflow: hidden;
-  background:
-    linear-gradient(rgba(18,59,71,0.06), rgba(18,59,71,0.06)),
-    repeating-linear-gradient(0deg, #E2DCD0 0 1px, transparent 1px 32px),
-    repeating-linear-gradient(90deg, #E2DCD0 0 1px, transparent 1px 32px),
-    var(--bg-alt);
+  border-radius: var(--radius-md); height: 220px; overflow: hidden;
+  background: var(--bg-alt); box-shadow: var(--shadow-sm);
 }
-.map-pin {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);
-  width: 52px; height: 52px; border-radius: 50% 50% 50% 0; background: var(--accent);
-  display: flex; align-items: center; justify-content: center; color: var(--white);
-  transform-origin: bottom center; rotate: -45deg; box-shadow: var(--shadow-md);
-}
-.map-pin i { rotate: 45deg; font-size: 1.2rem; }
+.contact-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.contact-map-link { margin-top: 4px; font-size: 0.92rem; }
 
 /* =========================================================
    FOOTER
@@ -667,11 +666,12 @@ section { padding: 120px 0; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 1900px) {
+@media (max-width: 1080px) {
   .main-nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg);
     flex-direction: column; padding: 26px 32px; gap: 20px; box-shadow: var(--shadow-md);
-    transform: translateY(-140%); transition: transform 0.4s ease; z-index: 400; }
-  .main-nav.open { transform: translateY(0); }
+    transform: translateY(-140%); transition: transform 0.4s ease, visibility 0.4s ease; z-index: 400;
+    visibility: hidden; }
+  .main-nav.open { transform: translateY(0); visibility: visible; }
   .nav-toggle { display: flex; }
   .header-phone { display: none; }
   .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -692,3 +692,202 @@ section { padding: 120px 0; }
   .marquee-track { gap: 32px; }
   .marquee-track span { font-size: 0.8rem; }
 }
+
+/* =========================================================
+   ÍCONES SVG (sprite inline — substitui o Font Awesome por CDN)
+========================================================= */
+.icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ico {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 1em; height: 1em; vertical-align: -0.125em;
+}
+/* Caixa quadrada de 1em: o preserveAspectRatio do SVG centra o glifo sem o distorcer.
+   (width:auto nao funciona — um <svg> so com viewBox assume os 300x150 de um elemento
+   substituido sem dimensoes intrinsecas.) */
+.ico svg { width: 1em; height: 1em; display: block; fill: currentColor; }
+
+/* =========================================================
+   ACESSIBILIDADE — skip link e foco visível
+========================================================= */
+.skip-link {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -120%);
+  z-index: 1001; background: var(--primary); color: var(--white);
+  padding: 12px 22px; border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-weight: 600; font-size: 0.92rem; transition: transform 0.2s ease;
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.differentiators :focus-visible,
+.cta-band :focus-visible,
+.site-footer :focus-visible { outline-color: var(--white); }
+
+/* =========================================================
+   MARQUEE — controlo de pausa (WCAG 2.2.2)
+========================================================= */
+.trust-strip { position: relative; }
+.trust-strip {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.trust-strip.is-paused .marquee-track { animation-play-state: paused; }
+
+.marquee-pause {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  background: var(--white); color: var(--primary); border: 1px solid #E2DCD0;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm); transition: background 0.25s ease, color 0.25s ease;
+}
+.marquee-pause:hover { background: var(--primary); color: var(--white); }
+.pause-glyph {
+  display: block; width: 10px; height: 12px;
+  border-left: 3px solid currentColor; border-right: 3px solid currentColor;
+}
+[aria-pressed="true"] .pause-glyph {
+  width: 0; height: 0; border: 0;
+  border-left: 11px solid currentColor;
+  border-top: 6px solid transparent; border-bottom: 6px solid transparent;
+}
+@media (max-width: 640px) { .marquee-pause { right: 4px; width: 28px; height: 28px; } }
+
+/* =========================================================
+   CARROSSEL — controlos de teclado e pausa
+========================================================= */
+.testimonial-controls {
+  display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 28px;
+}
+.carousel-btn {
+  width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+  background: var(--white); color: var(--primary); border: 1px solid #E2DCD0;
+  display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+  box-shadow: var(--shadow-sm); transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.carousel-btn:hover { background: var(--primary); color: var(--white); transform: translateY(-2px); }
+.carousel-btn--prev .ico { transform: scaleX(-1); }
+.testimonial-dots { margin-top: 0; }
+
+/* =========================================================
+   TILT — conduzido por custom properties para não colidir com :hover
+========================================================= */
+.tilt {
+  transform: perspective(700px)
+             rotateX(var(--rx, 0deg))
+             rotateY(var(--ry, 0deg))
+             translateY(var(--ty, 0px));
+}
+.service-card.tilt, .diff-card.tilt { --ty: -8px; }
+
+/* =========================================================
+   ANTES & DEPOIS — aviso de imagens ilustrativas
+========================================================= */
+.ba-disclaimer {
+  max-width: 900px; margin: 18px auto 0; text-align: center;
+  font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;
+}
+.ba-slider:focus-within { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+/* =========================================================
+   FORMULÁRIO — validação inline, consentimento RGPD, honeypot
+========================================================= */
+.form-required-note { font-size: 0.82rem; color: var(--text-muted); margin-bottom: -4px; }
+.req { color: var(--accent); font-weight: 700; }
+
+.field-error { display: none; font-size: 0.82rem; font-weight: 600; color: #B3261E; }
+.field-error:not(:empty) { display: block; }
+
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: #B3261E;
+  box-shadow: 0 0 0 4px rgba(179, 38, 30, 0.10);
+}
+
+/* Honeypot: fora do ecrã mas não display:none (bots ignoram campos ocultos assim). */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-consent-row { display: flex; align-items: flex-start; gap: 12px; }
+.form-consent input[type="checkbox"] {
+  width: 20px; height: 20px; margin-top: 2px; flex: none;
+  accent-color: var(--accent); cursor: pointer;
+}
+.form-consent label {
+  font-weight: 400; font-size: 0.86rem; color: var(--text-muted);
+  line-height: 1.5; cursor: pointer;
+}
+.policy-link { color: var(--accent); font-weight: 600; text-decoration: underline; }
+
+.form-note.is-error:not(:empty) {
+  color: #B3261E;
+  background: rgba(179, 38, 30, 0.08);
+  border-color: #B3261E;
+}
+
+.contact-info-card a { display: block; font-size: 0.9rem; color: var(--text-muted); transition: color 0.25s ease; }
+.contact-info-card a:hover { color: var(--accent); }
+
+/* =========================================================
+   RODAPÉ — ligações legais
+========================================================= */
+.footer-legal { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+.footer-legal a { color: rgba(255,255,255,0.7); transition: color 0.25s ease; }
+.footer-legal a:hover { color: var(--accent); }
+
+/* =========================================================
+   BOTÕES FLUTUANTES — não tapar conteúdo em ecrãs pequenos
+========================================================= */
+.whatsapp-float { bottom: max(30px, env(safe-area-inset-bottom)); }
+.back-to-top { bottom: max(30px, env(safe-area-inset-bottom)); }
+
+@media (max-width: 640px) {
+  .whatsapp-float, .back-to-top { width: 44px; height: 44px; font-size: 1.05rem; }
+  .whatsapp-float { left: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+  .back-to-top { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+}
+
+/* Cursor personalizado: apenas ponteiro fino e sem redução de movimento. */
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-dot { display: none !important; }
+}
+
+/* =========================================================
+   PREFERS-REDUCED-MOTION
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* O conteúdo do scroll-reveal tem de ficar visível mesmo sem animação. */
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .ink-underline path { stroke-dashoffset: 0 !important; }
+
+  .blob, .marquee-track, .orbit-badge__ring, .floating-card, .scroll-cue span {
+    animation: none !important;
+  }
+  .scroll-cue { display: none !important; }
+  .tilt { transform: none !important; }
+  body::after { display: none; } /* overlay de grão: custo de composição sem benefício */
+}
+
+/* =========================================================
+   NAVEGAÇÃO — indicador de secção activa (scrollspy)
+========================================================= */
+.main-nav a.is-active { color: var(--primary); }
+.main-nav a.is-active::after { width: 100%; }
